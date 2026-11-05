@@ -1,0 +1,9 @@
+timestamp,config_id,dataset,question_ids,llm_model,llm_base_url,embedding_model,embedding_base_url,jev_model,jev_route,jev_base_url
+2026-10-29T18:27:39,semantic_only,qa_complex_100.csv,1-100,gpt-5.4-nano,https://api.openai.com/v1,text-embedding-3-small,https://api.openai.com/v1,typesafe/jev-1.13-20260917,openrouter,https://openrouter.ai/api
+2026-10-29T18:27:39,arc_rag_v6_seven,qa_complex_100.csv,1-100,gpt-5.4-nano,https://api.openai.com/v1,text-embedding-3-small,https://api.openai.com/v1,typesafe/jev-1.13-20260917,openrouter,https://openrouter.ai/api
+2026-10-29T18:27:39,semantic_rerank,qa_complex_100.csv,1-100,gpt-5.4-nano,https://api.openai.com/v1,text-embedding-3-small,https://api.openai.com/v1,typesafe/jev-1.13-20260917,openrouter,https://openrouter.ai/api
+2026-10-29T18:27:39,static_sl_rerank,qa_complex_100.csv,1-100,gpt-5.4-nano,https://api.openai.com/v1,text-embedding-3-small,https://api.openai.com/v1,typesafe/jev-1.13-20260917,openrouter,https://openrouter.ai/api
+2026-10-29T18:27:39,static_slg_rerank,qa_complex_100.csv,1-100,gpt-5.4-nano,https://api.openai.com/v1,text-embedding-3-small,https://api.openai.com/v1,typesafe/jev-1.13-20260917,openrouter,https://openrouter.ai/api
+2026-10-29T18:27:39,arc_no_sufficiency,qa_complex_100.csv,1-100,gpt-5.4-nano,https://api.openai.com/v1,text-embedding-3-small,https://api.openai.com/v1,typesafe/jev-1.13-20260917,openrouter,https://openrouter.ai/api
+2026-10-30T09:04:03,lexical_only,qa_complex_100.csv,1-100,gpt-5.4-nano,https://api.openai.com/v1,text-embedding-3-small,https://api.openai.com/v1,typesafe/jev-1.13-20260917,openrouter,https://openrouter.ai/api
+2026-10-30T09:04:03,graph_only,qa_complex_100.csv,1-100,gpt-5.4-nano,https://api.openai.com/v1,text-embedding-3-small,https://api.openai.com/v1,typesafe/jev-1.13-20260917,openrouter,https://openrouter.ai/api
