@@ -1,8 +1,8 @@
-# ARC-RAG: Indonesian Statutory QA Dataset and Experimental Results
+# TyRe-RAG: Indonesian Statutory QA Dataset and Experimental Results
 
 This repository contains the evaluation dataset and the complete per-question
-results behind the paper *ARC-RAG: Adaptive Routing and Conditional Retrieval
-for Indonesian Legal Question Answering* (under review).
+results behind the paper *TyRe-RAG: Typed Routing and Cross-Modal Reranking for
+Indonesian Legal Question Answering* (under review).
 
 - **Dataset**: 100 complex Indonesian question–answer pairs grounded in Law
   No. 6 of 2023 on Job Creation (the Indonesian omnibus law).
@@ -28,6 +28,7 @@ results/
   node_timing_results_components100.csv   per-node timing of every execution
   judge_drift_components100.csv           judge re-scoring (26 questions x 3 repeats)
   run_provenance_components100.csv        models and endpoints per configuration
+  router_probe_components100.csv          typed router vs prompted LLM router, routing decision only
 reproduce_tables.py                       recomputes the paper's tables (stdlib only)
 SHA256SUMS
 LICENSE
@@ -99,8 +100,11 @@ the header) is `question_id` *i* in every results file.
 | `semantic_rerank` | Semantic+rerank |
 | `static_sl_rerank` | S+L+rerank |
 | `static_slg_rerank` | S+L+G+rerank |
-| `arc_no_sufficiency` | ARC-RAG w/o check |
-| `arc_rag_v6_seven` | ARC-RAG |
+| `arc_no_sufficiency` | TyRe-RAG w/o check |
+| `arc_rag_v6_seven` | TyRe-RAG |
+
+The `arc_` prefix is a historical internal name; the files keep the ids under
+which the runs were recorded.
 
 Models (also in `run_provenance_components100.csv`): generator
 `gpt-5.4-nano` at temperature 0, embeddings `text-embedding-3-small`,
@@ -120,10 +124,18 @@ router and sufficiency check `jev-1.13` (build `20260917`), reranker
   prefixed `suff_` describe the sufficiency check (`suff_noul` is the raw
   probability, `suff_threshold` the threshold, `suff_enough` the decision);
   columns prefixed `rr_` describe the reranking call.
-- `judge_drift_components100.csv`: the same ARC-RAG answers and contexts
+- `judge_drift_components100.csv`: the same TyRe-RAG answers and contexts
   re-scored three times by the same judge, without regenerating anything, so
   differences between repeats come from the judge and the embedding model
-  alone, not from the generator or the retrievers.
+  alone, not from the generator or the retrievers. The 26 questions are not a
+  random sample: they were chosen among low-scoring answers (context recall
+  below 1, contextual precision below 0.85, or semantic similarity below 0.78).
+- `router_probe_components100.csv`: the routing decision alone, without
+  retrieval, generation, or judging, for all 100 questions. Each question was
+  routed by `gpt-5.4-nano` prompted with the same instructions and seven
+  criteria as the typed router, and by `jev-1.13` again in the same session,
+  alternating the order per question. `jev_original` is the label from the
+  main run. Latencies are wall-clock seconds per decision.
 
 ### Reproducing the tables
 

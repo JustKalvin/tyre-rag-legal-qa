@@ -3,7 +3,7 @@
 Standard library only:  python reproduce_tables.py
 
 Prints, per configuration, the mean (and SD) of the five quality metrics and of
-end-to-end latency, then the routing and escalation counts of ARC-RAG.
+end-to-end latency, then the routing and escalation counts of TyRe-RAG.
 """
 
 import csv
@@ -23,8 +23,8 @@ CONFIGS = {
     "semantic_rerank": "Semantic+rerank",
     "static_sl_rerank": "S+L+rerank",
     "static_slg_rerank": "S+L+G+rerank",
-    "arc_no_sufficiency": "ARC-RAG w/o check",
-    "arc_rag_v6_seven": "ARC-RAG",
+    "arc_no_sufficiency": "TyRe-RAG w/o check",
+    "arc_rag_v6_seven": "TyRe-RAG",
 }
 METRICS = ["faithfulness", "answer_relevancy", "context_precision",
            "context_recall", "semantic_similarity"]
@@ -53,7 +53,7 @@ def main():
 
     meta = [r for r in read("router_meta_results_components100.csv")
             if r["config_id"] == "arc_rag_v6_seven"]
-    print("\nARC-RAG routes:", dict(Counter(r["modality"] for r in meta).most_common()))
+    print("\nTyRe-RAG routes:", dict(Counter(r["modality"] for r in meta).most_common()))
     checked = [r for r in meta if r["suff_noul"] not in ("", "nan")]
     escalated = [r for r in checked if r["suff_enough"] == "False"]
     print(f"sufficiency check ran on {len(checked)}, escalated {len(escalated)}:",
