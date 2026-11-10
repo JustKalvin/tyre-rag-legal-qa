@@ -1,8 +1,8 @@
 # TyRe-RAG: Indonesian Statutory QA Dataset and Experimental Results
 
 This repository contains the evaluation dataset and the complete per-question
-results behind the paper *TyRe-RAG: Typed Routing and Cross-Modal Reranking for
-Indonesian Legal Question Answering* (under review).
+results behind the paper *TyRe-RAG: Typed Routing and Reranking for Indonesian
+Legal Question Answering* (under review).
 
 - **Dataset**: 100 complex Indonesian question–answer pairs grounded in Law
   No. 6 of 2023 on Job Creation (the Indonesian omnibus law).
