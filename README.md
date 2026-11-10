@@ -92,6 +92,16 @@ legal accuracy.
   ellipsis (rows 60–63, 69–72, 80–82, 94; flagged in the metadata). They were
   kept unedited because the reported results were computed on them. The
   paper reports a control analysis without them (n = 88).
+- **Some pairs are defective** and were kept unedited because the reported
+  results were computed on them:
+  - Row 60: the reference quotes the explanatory note (*Penjelasan*) of
+    Article 65 rather than the article itself.
+  - Row 65: the question joins a deleted labour provision (Articles 158–159)
+    with geothermal sanctions (Article 40), which belong to different laws.
+  - Row 73: the question cites Article 75, but the reference answers from
+    Article 15.
+  - Row 81: the question joins Article 30(1) of the telecommunications law
+    with Article 23(7) of the trademark law.
 - **No pair was verified by someone with legal training.** All 100 pairs are
   LLM-generated and were checked only by one author without legal training,
   assisted by an LLM, so reference-based metrics inherit any error that check
